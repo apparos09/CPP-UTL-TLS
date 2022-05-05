@@ -17,3 +17,4 @@ TODO:
 complete sorting techniques and test all of them.
 finish periodic table.
 complete randomizer functions.
+need to make file property reader.
