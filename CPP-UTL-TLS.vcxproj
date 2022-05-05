@@ -139,7 +139,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Main.cpp" />
+    <ClCompile Include="CPP-UTL-TLS.cpp" />
     <ClCompile Include="utils\Array.cpp" />
     <ClCompile Include="utils\Color.cpp" />
     <ClCompile Include="utils\math\Collision.cpp" />

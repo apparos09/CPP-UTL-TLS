@@ -18,7 +18,7 @@
     <ClCompile Include="Wrapper.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Main.cpp">
+    <ClCompile Include="CPP-UTL-TLS.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="utils\math\Collision.cpp">
