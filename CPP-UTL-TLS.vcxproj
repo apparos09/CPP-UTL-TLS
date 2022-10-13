@@ -142,6 +142,7 @@
     <ClCompile Include="CPP-UTL-TLS.cpp" />
     <ClCompile Include="utils\Array.cpp" />
     <ClCompile Include="utils\Color.cpp" />
+    <ClCompile Include="utils\FilePropertyStream.cpp" />
     <ClCompile Include="utils\math\Collision.cpp" />
     <ClCompile Include="utils\math\Interpolation.cpp" />
     <ClCompile Include="utils\math\LargeInt.cpp" />
@@ -161,6 +162,7 @@
     <ClInclude Include="PluginSettings.h" />
     <ClInclude Include="utils\Array.h" />
     <ClInclude Include="utils\Color.h" />
+    <ClInclude Include="utils\FilePropertyStream.h" />
     <ClInclude Include="utils\math\Collision.h" />
     <ClInclude Include="utils\math\Interpolation.h" />
     <ClInclude Include="utils\math\LargeInt.h" />
