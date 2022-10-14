@@ -3,9 +3,13 @@
 
 #include <iostream>
 
+#include "utils/FilePropertyStream.h"
+
 int main()
 {
     std::cout << "Hello World!\n";
+
+    util::FilePropertyStream f = util::FilePropertyStream("test.txt");
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
