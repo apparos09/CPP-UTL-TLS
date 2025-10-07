@@ -9,7 +9,38 @@ int main()
 {
     std::cout << "Hello World!\n";
 
-    util::FilePropertyStream f = util::FilePropertyStream("test.txt");
+    // If the file tests should be run...
+    bool runFileTests = true;
+
+    // Runs the file tests.
+    if (runFileTests)
+    {
+        // Testing the file property system.
+        std::string fileName = "test.txt";
+        util::FilePropertyStream fps = util::FilePropertyStream(fileName);
+
+        // File name.
+        std::cout << std::endl;
+        std::cout << "File: " << fileName << std::endl;
+
+        // File exists.
+        bool fpsExists = fps.fileInfo.fileExists();
+        std::cout << "Exists: " << std::boolalpha << fpsExists << std::endl;
+
+        // File size.
+        std::cout << "Size: " << fps.fileInfo.getFileSizeInBytes() << std::endl;
+
+        // If the file exists...
+        if (fpsExists)
+        {
+            // Prints the contents.
+            std::cout << "\nPrinting File Contents..." << std::endl;
+            fps.printFileContents();
+            // std::cout << std::endl;
+            std::cout << "End of File Contents" << std::endl;
+        }
+    }
+    
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
