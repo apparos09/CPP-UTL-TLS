@@ -98,18 +98,6 @@ int util::FilePropertyStream::FileInfo::getFileSizeInBytes()
 	}
 }
 
-// Gets the file property of the provided name.
-std::string util::FilePropertyStream::FileInfo::getFileProperty(std::string propertyName)
-{
-	// TODO: figure out how to read the file properties and metadata
-
-	// LPCSTR file = filePath.c_str();
-
-	// DWORD c = GetFileAttributesA(file);	
-
-
-	return std::string();
-}
 
 
 // FilePropertyStream

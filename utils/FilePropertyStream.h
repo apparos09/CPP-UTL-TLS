@@ -15,9 +15,6 @@
 #include <fstream>
 #include <filesystem>
 
-// causes error when included.
-// #include <fileapi.h>
-// #include <sys/stat.h>
 
 namespace util
 {
@@ -45,9 +42,6 @@ namespace util
 
 			// Gets the size of the file. Returns -1 if the file doesn't exist.
 			int getFileSizeInBytes();
-
-			// Gets a file property.
-			std::string getFileProperty(std::string propertyName);
 
 			// The file path.
 			std::string filePath;
