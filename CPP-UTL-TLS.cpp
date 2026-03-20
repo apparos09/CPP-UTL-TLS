@@ -3,11 +3,30 @@
 
 #include <iostream>
 
+#include "utils/Utils.h"
 #include "utils/FilePropertyStream.h"
 
 int main()
 {
     std::cout << "Hello World!\n";
+
+    // If string tests should be run.
+    bool runStringTests = true;
+
+    // Runs the string tests.
+    if (runStringTests)
+    {
+        std::cout << std::endl;
+
+        // Testing stringContains
+        std::string testStr = "ABCD";
+        std::string testStrSearch = "E";
+
+        std::cout << "stringContains(" + testStr + ", " << testStrSearch << ") = " 
+            << std::boolalpha << util::stringContains(testStr, testStrSearch);
+
+        std::cout << std::endl;
+    }
 
     // If the file tests should be run...
     bool runFileTests = true;

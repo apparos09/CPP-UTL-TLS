@@ -10,16 +10,20 @@ namespace util
 {
 	// Standard Utilities
 	// converts a whole string to lowercase
-	std::string toLower(std::string);
+	std::string toLower(std::string str);
 
 	// converts a whole string to uppercase
-	std::string toUpper(std::string);
+	std::string toUpper(std::string str);
 
 	// capitalizes a string, making all but the first character lowercase.
-	std::string captialize(std::string);
+	std::string captialize(std::string str);
 
-	// checks if two strings are equal, ignoring case diffrences.
-	bool equalsIgnoreCase(std::string, std::string);
+	// checks if two strings are equal, ignoring case differences.
+	bool equalsIgnoreCase(std::string str1, std::string str2);
+
+	// checks if string 2 can be found in string 1.
+	// it appears that class functions cannot use the inline keyword, as that caused the build to fail.
+	bool stringContains(std::string str1, std::string str2);
 
 	// replaces every instance of a set of characters in a string with another set of characters.
 	// oldSubstr: the string segment that's being removed

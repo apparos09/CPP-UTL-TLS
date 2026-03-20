@@ -4,6 +4,8 @@
 	* https://stackoverflow.com/questions/16605967/set-precision-of-stdto-string-when-converting-floating-point-values
 	* http://www.cplusplus.com/reference/string/string/substr/
 	* http://www.cplusplus.com/reference/string/string/erase/
+	* https://en.cppreference.com/w/cpp/language/inline.html
+	* https://www.geeksforgeeks.org/cpp/inline-functions-cpp/
 */
 
 #include "Utils.h"
@@ -75,6 +77,12 @@ bool util::equalsIgnoreCase(std::string str1, std::string str2)
 	str1 = toLower(str1);
 	str2 = toLower(str2);
 	return str1 == str2; // returning whether the two are equal
+}
+
+// checks if string 2 can be found in string 1.
+bool util::stringContains(std::string str1, std::string str2)
+{
+	return str1.find(str2) != std::string::npos;
 }
 
 // replaces every instance of a set of characters in a string with another set of characters.
