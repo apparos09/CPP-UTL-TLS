@@ -12,24 +12,42 @@ namespace util
 	// converts a whole string to lowercase
 	std::string toLower(std::string str);
 
+	// converts a whole wstring to lowercase
+	std::wstring toLower(std::wstring str);
+
 	// converts a whole string to uppercase
 	std::string toUpper(std::string str);
+
+	// converts a whole wstring to uppercase
+	std::wstring toUpper(std::wstring str);
 
 	// capitalizes a string, making all but the first character lowercase.
 	std::string captialize(std::string str);
 
+	// capitalizes a wstring, making all but the first character lowercase.
+	std::wstring captialize(std::wstring str);
+
 	// checks if two strings are equal, ignoring case differences.
 	bool equalsIgnoreCase(std::string str1, std::string str2);
+
+	// checks if two wstrings are equal, ignoring case differences.
+	bool equalsIgnoreCase(std::wstring str1, std::wstring str2);
 
 	// checks if string 2 can be found in string 1.
 	// it appears that class functions cannot use the inline keyword, as that caused the build to fail.
 	bool stringContains(std::string str1, std::string str2);
+
+	// checks if wstring 2 can be found in wstring 1.
+	bool stringContains(std::wstring str1, std::wstring str2);
 
 	// replaces every instance of a set of characters in a string with another set of characters.
 	// oldSubstr: the string segment that's being removed
 	// newSubstr: the string that will be put in its place.
 	// ignoreCase: if false, then the function is case sensitive. If true, then the function ignores cases when looking for oldSubstr.
 	std::string replaceSubstring(std::string str, std::string oldSubstr, std::string newSubstr, bool ignoreCase = false);
+
+	// replaces every instance of a set of wide characters in a wstring with another set of wide characters.
+	std::wstring replaceSubstring(std::wstring str, std::wstring oldSubstr, std::wstring newSubstr, bool ignoreCase = false);
 
 	// splits the string into a vector of the provided data type using spaces.
 	template<typename T>
@@ -58,25 +76,64 @@ namespace util
 		return vec; // returns the vector
 	}
 
+	// splits the wstring into a vector of the provided data type using spaces.
+	template<typename T>
+	const std::vector<T> splitString(std::wstring str)
+	{
+		std::wstringstream ss; // the wstring stream.
+		std::vector<T> vec; // the vector used for the vertex.
+		T var; // used to store the item from the string.
+
+
+		// if the wstring is of length 0, then an empty vector is returned.
+		if (str.length() == 0)
+			return std::vector<T>();
+
+		ss.str(str); // stores the wstring in the stream
+
+		while (ss >> var) // while the string stream isn't empty
+		{
+			// if the conversion failed, the string stream moves onto the next item.
+			if (ss.bad())
+				continue;
+
+			vec.push_back(var); // saves in the vector
+		}
+
+		return vec; // returns the vector
+	}
+
 	/*
-	 * splits a string into a vector based on the provided divider.
+	 * splits a string into a vector based on the provided delimiter (seperator).
 	 * this breaks down the string manually, and thus does not offer automatic data type conversion.
 	 * Regarding instances of (""), which occur if two dividers are placed side by side
 		* if includeBlanks is set to true (which it is by default), then instances of ("") will be included.
 		* if includeBlanks is set to false, then instances of ("") will be ignored and not added to the list.
 	 * keep in mind that this is case sensitive. 
 	*/
-	std::vector<std::string> splitString(const std::string str, const std::string divider, const bool includeBlanks = true);
+	std::vector<std::string> splitString(const std::string str, const std::string delimiter, const bool includeBlanks = true);
+
+	// splits a wstring into a vector based on the provided delimiter (seperator).
+	std::vector<std::wstring> splitString(const std::wstring str, const std::wstring delimiter, const bool includeBlanks = true);
 
 
 	// checks to see if a string is an integer; this is improved from isNum.
 	bool isInt(std::string str);
 
+	// checks to see if a string is an integer; this is improved from isNum.
+	bool isInt(std::wstring str);
+
 	// checks to see if a string is a decimal, which would be a float or double. However, it is validated under the assumption it will become a double.
 	bool isDecimal(std::string str);
 
+	// checks to see if a string is a decimal, which would be a float or double. However, it is validated under the assumption it will become a double.
+	bool isDecimal(std::wstring str);
+
 	// checks if a string is a number. IsInt or IsDecimal should be used instead.
 	bool isNum(std::string str);
+
+	// checks if a string is a number. IsInt or IsDecimal should be used instead.
+	bool isNum(std::wstring str);
 
 	// convets the string to the provided data type. Do note that the value might be truncated if the conversion doesn't make logical sense.
 	template<typename T>
@@ -93,35 +150,77 @@ namespace util
 		return val;
 	}
 
+	// convets the wstring to the provided data type. Do note that the value might be truncated if the conversion doesn't make logical sense.
+	template<typename T>
+	T convertString(const std::wstring& str)
+	{
+		// TODO: do error checking for this function.
+		std::wstringstream ss; // the wstring stream.
+		T val; // used to store the item from the string.
+
+		ss.str(str); // stores the wstring in the stream
+
+		ss >> val;
+
+		return val;
+	}
+
 	// string to int
 	int stringToInt(const std::string& str);
+
+	// wstring to int
+	int stringToInt(const std::wstring& str);
 
 	// string to short
 	short stringToShort(const std::string& str);
 
+	// wstring to short
+	short stringToShort(const std::wstring& str);
+
 	// string to long
 	long stringToLong(const std::string& str);
+
+	// wstring to long
+	long stringToLong(const std::wstring& str);
 
 	// string to double
 	double stringToDouble(const std::string& str);
 
+	// wstring to double
+	double stringToDouble(const std::wstring& str);
+
 	// string to int
 	float stringToFloat(const std::string& str);
+
+	// wstring to int
+	float stringToFloat(const std::wstring& str);
 
 	// converts a double to a string
 	std::string doubleToString(double value);
 
+	// converts a double to a wstring
+	std::wstring doubleToWString(double value);
+
 	// converts a float to a string
 	std::string floatToString(float value);
+
+	// converts a float to a wstring
+	std::wstring floatToWString(float value);
 
 	// returns a string of size 'LENGTH' with zeros filling in the rest of the string's size.
 	// if the length provided is less than the length of the number provided, the number is truncated.
 	std::string zeroFill(int num, const unsigned int LENGTH);
+
+	// returns a wstring of size 'LENGTH' with zeros filling in the rest of the wstring's size.
+	std::wstring zeroFillW(int num, const unsigned int LENGTH);
 	
 	// TODO: zero front fill and back fill for decimal numbers.
 
 	// returns 'true' if a file can be opened successsfully, and false if it cannot.
 	bool fileAccessible(const std::string & filePath);
+
+	// returns 'true' if a file can be opened successsfully, and false if it cannot.
+	bool fileAccessible(const std::wstring& filePath);
 
 	// returns the minimum between two values.
 	// the less than operator (<) must be overloaded for this function to work.

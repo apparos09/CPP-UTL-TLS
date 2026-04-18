@@ -18,12 +18,21 @@ int main()
     {
         std::cout << std::endl;
 
-        // Testing stringContains
+        // Testing stringContains (std::string)
         std::string testStr = "ABCD";
         std::string testStrSearch = "E";
 
-        std::cout << "stringContains(" + testStr + ", " << testStrSearch << ") = " 
+        std::cout << "[std::string] stringContains(" + testStr + ", " << testStrSearch << ") = " 
             << std::boolalpha << util::stringContains(testStr, testStrSearch);
+
+        std::cout << std::endl;
+
+        // Testing stringContains (std::wstring)
+        std::wstring testWStr = L"FGHI";
+        std::wstring testWStrSearch = L"H";
+
+        std::wcout << L"[std::wstring] stringContains(" + testWStr + L", " << testWStrSearch << L") = "
+            << std::boolalpha << util::stringContains(testWStr, testWStrSearch);
 
         std::cout << std::endl;
     }
