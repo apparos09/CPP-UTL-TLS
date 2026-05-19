@@ -40,6 +40,28 @@ namespace util
 	// checks if wstring 2 can be found in wstring 1.
 	bool stringContains(std::wstring str1, std::wstring str2);
 
+	// gets the number of times substr appears in str.
+	// ignoreCase: if false, the case of the string and susbtr are ignored when making comparisons.
+	int substringCount(std::string str, std::string substr, bool ignoreCase = false);
+
+	// gets the number of times substr appears in str (wide string).
+	// ignoreCase: if false, the case of the string and susbtr are ignored when making comparisons.
+	int substringCount(std::wstring str, std::wstring substr, bool ignoreCase = false);
+
+	// trims the string, removing spaces (" ") at the start and end.
+	std::string trimString(std::string str);
+
+	// trims the string, removing substr at the start and end.
+	// ignoreCase: if 'true', case is ignored when triming the beginning and end of the string.
+	std::string trimString(std::string str, std::string substr, bool ignoreCase = false);
+
+	// trims the wide string, removing spaces (" ") at the start and end.
+	std::wstring trimString(std::wstring str);
+
+	// trims the wide string, removing wide substr at the start and end.
+	// ignoreCase: if 'true', case is ignored when triming the beginning and end of the string.
+	std::wstring trimString(std::wstring str, std::wstring substr, bool ignoreCase = false);
+
 	// replaces every instance of a set of characters in a string with another set of characters.
 	// oldSubstr: the string segment that's being removed
 	// newSubstr: the string that will be put in its place.

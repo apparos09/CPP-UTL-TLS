@@ -156,6 +156,182 @@ bool util::stringContains(std::wstring str1, std::wstring str2)
 	return str1.find(str2) != std::wstring::npos;
 }
 
+// gets the number of times substr appears in str.
+// ignoreCase: if false, the case of the string and susbtr are ignored when making comparisons.
+int util::substringCount(std::string str, std::string substr, bool ignoreCase)
+{
+	// Gets the string and substring for comparison, taking into account if case should be ignored.
+	std::string strComp = ignoreCase ? toLower(str) : str;
+	std::string substrComp = ignoreCase ? toLower(substr) : substr;
+
+	// The count to be returned, and the current index in strComp.
+	int count = 0;
+	int index = 0;
+
+	// Finds all instances of the substring while the index is greater than or equal to 0...
+	// And the index is less than the comparison strng's length.
+	while (index >= 0 && index < strComp.length())
+	{
+		// Checks for substring from current index.
+		if (strComp.find(substrComp, index) != std::string::npos)
+		{
+			// Increase count.
+			count++;
+
+			// Gets the index of the substr, increased by the substring's length.
+			index = strComp.find(substrComp, index) + substrComp.length();
+		}
+		// Substring couldn't be found.
+		else
+		{
+			index = -1;
+		}
+	}
+	
+	// Returns the count.
+	return count;
+}
+
+// gets the number of times substr appears in str (wide string).
+// ignoreCase: if false, the case of the string and susbtr are ignored when making comparisons.
+int util::substringCount(std::wstring str, std::wstring substr, bool ignoreCase)
+{
+	// Gets the wide string and substring for comparison, taking into account if case should be ignored.
+	std::wstring strComp = ignoreCase ? toLower(str) : str;
+	std::wstring substrComp = ignoreCase ? toLower(substr) : substr;
+
+	// The count to be returned, and the current index in strComp.
+	int count = 0;
+	int index = 0;
+
+	// Finds all instances of the substring while the index is greater than or equal to 0...
+	// And the index is less than the comparison strng's length.
+	while (index >= 0 && index < strComp.length())
+	{
+		// Checks for substring from current index.
+		if (strComp.find(substrComp, index) != std::string::npos)
+		{
+			// Increase count.
+			count++;
+
+			// Gets the index of the substr, increased by the substring's length.
+			index = strComp.find(substrComp, index) + substrComp.length();
+		}
+		// Substring couldn't be found.
+		else
+		{
+			index = -1;
+		}
+	}
+
+	// Returns the count.
+	return count;
+}
+
+// trims the string, removing spaces (" ") at the start and end.
+std::string util::trimString(std::string str)
+{
+	// NOTE: tab escape sequences ("\t") don't get removed by this function since they're different from spaces (" ").
+
+	// Resues other function.
+	return trimString(str, " ", false);
+}
+
+// trims the string, removing substr at the start and end.
+// ignoreCase: if 'true', case is ignored when triming the beginning and end of the string.
+std::string util::trimString(std::string str, std::string substr, bool ignoreCase)
+{
+	// The result string to be returned.
+	std::string result;
+
+	// The result of the find functions.
+	size_t findRes;
+
+	// Gets the string and substring for comparison, taking into account if case should be ignored.
+	std::string strComp = ignoreCase ? toLower(str) : str;
+	std::string substrComp = ignoreCase ? toLower(substr) : substr;
+
+	// FIRST NOT
+	// Finds first not of and saves if found. If not found, set to -1.
+	findRes = strComp.find_first_not_of(substrComp);
+	int indexFirstNot = findRes != std::string::npos ? findRes : -1;
+
+	// Gets the string with the start trimmed, saving it to result.
+	result = indexFirstNot != -1 ? strComp.substr(indexFirstNot) : strComp;
+
+	// LAST NOT OF
+	// Finds last not of and saves if found. If not found, set to -1.
+	findRes = result.find_last_not_of(substrComp);
+	int indexLastNot = findRes != std::string::npos ? findRes : -1;
+
+	// If the last not index is the end of the string (string length - 1), set it to -1.
+	// This means there's nothing to trim at the end.
+	// This check is necessary since grabbing a substring outside of a string's length causes an error.
+	if (indexLastNot == result.length() - 1)
+	{
+		indexLastNot = -1;
+	}
+
+	// Gets the result with the end trimmed, overwriting the varible.
+	// Variable 'result' is used since its beginning has already been trimmed.
+	result = indexLastNot != -1 ? result.substr(0, indexLastNot + 1) : result;
+
+	// Returns the result.
+	return result;
+}
+
+// trims the wide string, removing spaces (" ") at the start and end.
+std::wstring util::trimString(std::wstring str)
+{
+	// NOTE: tab escape sequences ("\t") don't get removed by this function since they're different from spaces (" ").
+
+	// Resues other function.
+	return trimString(str, L" ", false);
+}
+
+// trims the wide string, removing wide substr at the start and end.
+// ignoreCase: if 'true', case is ignored when triming the beginning and end of the string.
+std::wstring util::trimString(std::wstring str, std::wstring substr, bool ignoreCase)
+{
+	// The result string to be returned.
+	std::wstring result;
+
+	// The result of the find functions.
+	size_t findRes;
+
+	// Gets the string and substring for comparison, taking into account if case should be ignored.
+	std::wstring strComp = ignoreCase ? toLower(str) : str;
+	std::wstring substrComp = ignoreCase ? toLower(substr) : substr;
+
+	// FIRST NOT
+	// Finds first not of and saves if found. If not found, set to -1.
+	findRes = strComp.find_first_not_of(substrComp);
+	int indexFirstNot = findRes != std::string::npos ? findRes : -1;
+
+	// Gets the string with the start trimmed, saving it to result.
+	result = indexFirstNot != -1 ? strComp.substr(indexFirstNot) : strComp;
+
+	// LAST NOT OF
+	// Finds last not of and saves if found. If not found, set to -1.
+	findRes = result.find_last_not_of(substrComp);
+	int indexLastNot = findRes != std::string::npos ? findRes : -1;
+
+	// If the last not index is the end of the string (string length - 1), set it to -1.
+	// This means there's nothing to trim at the end.
+	// This check is necessary since grabbing a substring outside of a string's length causes an error.
+	if (indexLastNot == result.length() - 1)
+	{
+		indexLastNot = -1;
+	}
+
+	// Gets the result with the end trimmed, overwriting the varible.
+	// Variable 'result' is used since its beginning has already been trimmed.
+	result = indexLastNot != -1 ? result.substr(0, indexLastNot + 1) : result;
+
+	// Returns the result.
+	return result;
+}
+
 // replaces every instance of a set of characters in a string with another set of characters.
 std::string util::replaceSubstring(std::string str, std::string oldSubstr, std::string newSubstr, bool ignoreCase)
 {

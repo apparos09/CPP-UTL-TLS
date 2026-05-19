@@ -35,6 +35,41 @@ int main()
             << std::boolalpha << util::stringContains(testWStr, testWStrSearch);
 
         std::cout << std::endl;
+
+        // Test substring counts.
+        std::string substrCnt01 = "Test test TEST tEst... This is a test for a tester.";
+        std::wstring substrCnt02 = L"Test test TEST tEsT... This is a test for a tester.";
+
+        std::cout << std::endl;
+        std::cout << "substrCount(\"" << substrCnt01 << "\", \"test\", false) = " << util::substringCount(substrCnt01, "test", false) << std::endl;
+        std::wcout << "substrCount(\"" << substrCnt02 << "\", \"test\", true) = " << util::substringCount(substrCnt01, "test", true) << std::endl;
+        std::cout << std::endl;
+
+        // Testing the trim functions.
+        std::string trimStr01 = "   trim01   ";
+        std::string trimStr02 = "trim02  ";
+        std::string trimStr03 = "   trim03";
+        std::string trimStr04 = " trim04   ";
+        std::string trimStr05 = "   trim05 ";
+        std::string trimStr06 = "\ttrim06\t";
+        std::wstring trimStr07 = L"    trim07    ";
+        std::wstring trimStr08 = L"  trim08  ";
+        std::string trimStr09 = "AaAtrim09AaA";
+        std::string trimStr10 = "AaAtrim10AaA";
+
+        std::cout << std::endl;
+        std::cout << "trimString(\"" << trimStr01 << "\") = " << util::trimString(trimStr01) << std::endl;
+        std::cout << "trimString(\"" << trimStr02 << "\") = " << util::trimString(trimStr02, " ") << std::endl;
+        std::cout << "trimString(\"" << trimStr03 << "\") = " << util::trimString(trimStr03) << std::endl;
+        std::cout << "trimString(\"" << trimStr04 << "\") = " << util::trimString(trimStr04) << std::endl;
+        std::cout << "trimString(\"" << trimStr05 << "\") = " << util::trimString(trimStr05, " ") << std::endl;
+        std::cout << "trimString(\"" << trimStr06 << "\") = " << util::trimString(trimStr06, "\t") << std::endl;
+        std::wcout << "trimString(\"" << trimStr07 << "\") = " << util::trimString(trimStr07) << std::endl;
+        std::wcout << "trimString(\"" << trimStr08 << "\") = " << util::trimString(trimStr08) << std::endl;
+        std::cout << "trimString(\"" << trimStr09 << "\", \"A\", false) = " << util::trimString(trimStr09, "A", false) << std::endl;
+        std::cout << "trimString(\"" << trimStr10 << "\", \"A\", true) = " << util::trimString(trimStr10, "A", true) << std::endl;
+
+        std::cout << std::endl;
     }
 
     // If the file tests should be run...
@@ -69,6 +104,10 @@ int main()
         }
     }
     
+    std::cout << std::endl;
+
+    system("pause");
+    return 0;
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
