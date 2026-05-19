@@ -9,16 +9,16 @@
 namespace util
 {
 	// Standard Utilities
-	// converts a whole string to lowercase
+	// converts a whole string to lowercase.
 	std::string toLower(std::string str);
 
-	// converts a whole wstring to lowercase
+	// converts a whole wstring to lowercase.
 	std::wstring toLower(std::wstring str);
 
-	// converts a whole string to uppercase
+	// converts a whole string to uppercase.
 	std::string toUpper(std::string str);
 
-	// converts a whole wstring to uppercase
+	// converts a whole wstring to uppercase.
 	std::wstring toUpper(std::wstring str);
 
 	// capitalizes a string, making all but the first character lowercase.

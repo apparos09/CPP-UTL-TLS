@@ -22,7 +22,7 @@
 #include <stack>
 
 /// STRING AND GENERAL FUNCTIONS //////////////////////////////////////////////////////
-// converts a whole string to lowercase
+// converts a whole string to lowercase.
 std::string util::toLower(std::string str)
 {
 	// returns the string if its of length zero.
@@ -40,7 +40,7 @@ std::string util::toLower(std::string str)
 	return strL;
 }
 
-// converts a whole wstring to lowercase
+// converts a whole wstring to lowercase.
 std::wstring util::toLower(std::wstring str)
 {
 	// returns the string if its of length zero.
@@ -58,7 +58,7 @@ std::wstring util::toLower(std::wstring str)
 	return strL;
 }
 
-// converts a whole string to uppercase
+// converts a whole string to uppercase.
 std::string util::toUpper(std::string str)
 {
 	// returns the string if its of length zero.
@@ -76,7 +76,7 @@ std::string util::toUpper(std::string str)
 	return strL;
 }
 
-// converts a whole wstring to uppercase
+// converts a whole wstring to uppercase.
 std::wstring util::toUpper(std::wstring str)
 {
 	// returns the string if its of length zero.
