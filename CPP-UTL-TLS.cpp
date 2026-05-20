@@ -50,12 +50,14 @@ int main()
         std::string trimStr02 = "trim02  ";
         std::string trimStr03 = "   trim03";
         std::string trimStr04 = " trim04   ";
-        std::string trimStr05 = "   trim05 ";
+        std::string trimStr05 = "   TRIM05 ";
         std::string trimStr06 = "\ttrim06\t";
         std::wstring trimStr07 = L"    trim07    ";
         std::wstring trimStr08 = L"  trim08  ";
         std::string trimStr09 = "AaAtrim09AaA";
-        std::string trimStr10 = "AaAtrim10AaA";
+        std::string trimStr10 = "AaATrim10AaA";
+        std::string trimStr11 = "trimStr11";
+        std::string trimStrBlank = "     ";
 
         std::cout << std::endl;
         std::cout << "trimString(\"" << trimStr01 << "\") = " << util::trimString(trimStr01) << std::endl;
@@ -68,6 +70,8 @@ int main()
         std::wcout << "trimString(\"" << trimStr08 << "\") = " << util::trimString(trimStr08) << std::endl;
         std::cout << "trimString(\"" << trimStr09 << "\", \"A\", false) = " << util::trimString(trimStr09, "A", false) << std::endl;
         std::cout << "trimString(\"" << trimStr10 << "\", \"A\", true) = " << util::trimString(trimStr10, "A", true) << std::endl;
+        std::cout << "trimString(\"" << trimStr11 << "\") = " << util::trimString(trimStr11) << std::endl;
+        std::cout << "trimString(\"" << trimStrBlank << "\") = " << util::trimString(trimStrBlank) << std::endl;
 
         std::cout << std::endl;
     }
